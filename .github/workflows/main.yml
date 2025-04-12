@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - '**/*.md'  # Trigger only for .md files
+      - '**/*.md'
 
 jobs:
   spellint:
@@ -20,8 +20,5 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run Spellint check
+      - name: Run Spellint with NPX
         run: npx spellint .
