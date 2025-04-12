@@ -2,23 +2,21 @@ name: Spellint Check
 
 on:
   pull_request:
-    branches:
-      - main
-    paths:
-      - '**/*.md'
+    branches: [main]
 
 jobs:
   spellint:
+    name: Run Spellint Linting
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
 
-      - name: Run Spellint with NPX
+      - name: Run Spellint via NPX
         run: npx spellint .
